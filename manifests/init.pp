@@ -6,6 +6,8 @@ class google_auth_proxy(
   $version   = $google_auth_proxy::params::version
 ) inherits google_auth_proxy::params {
 
+  Class['Google_auth_proxy'] -> Class['Google_auth_proxy::Service']
+
   File { owner => $user, group => $group }
 
   archive { $install_dir:
@@ -27,10 +29,12 @@ class google_auth_proxy(
     require => File[$install_path]
   }
 
-  file { "${install_path}/google_auth_proxy.cfg":
+  file { $config_path:
     ensure  => file,
     mode    => '0600',
     content => template('google_auth_proxy/google_auth_proxy.cfg.erb'),
     require => File[$install_path]
   }
+
+  class { 'google_auth_proxy::service': }
 }

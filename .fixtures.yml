@@ -1,5 +1,7 @@
 fixtures:
   repositories:
     "archive": "git://github.com/camptocamp/puppet-archive"
+    "supervisor": "git://github.com/BioIQ/puppet-supervisor"
+    "stdlib": "git://github.com/puppetlabs/puppetlabs-stdlib"
   symlinks:
     "google_auth_proxy": "#{source_dir}"

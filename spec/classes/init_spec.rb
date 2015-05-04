@@ -37,4 +37,6 @@ describe 'google_auth_proxy' do
     'mode'    => '0600'
     }).that_requires("File[/opt/google_auth_proxy-#{version}.linux-amd64.go1.4.2]")
   }
+
+  it { should contain_class('google_auth_proxy::service') }
 end
