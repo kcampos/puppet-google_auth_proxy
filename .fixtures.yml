@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    "archive": "git://github.com/camptocamp/puppet-archive"
+  symlinks:
+    "google_auth_proxy": "#{source_dir}"

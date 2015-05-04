@@ -1,0 +1,11 @@
+client_id = "<%= @client_id %>"
+client_secret = "<%= @client_secret %>"
+http_address = "<%= @http_address %>"
+<% if !@google_apps_domains.empty? -%>
+google_apps_domains = [
+<%   @google_apps_domains.each do |domain| -%>
+  <%= domain %>,
+]
+<%   end -%>
+<% end -%>
+htpasswd_file = "<%= @htpasswd_file %>"
