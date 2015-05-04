@@ -1,11 +1,24 @@
 client_id = "<%= @client_id %>"
 client_secret = "<%= @client_secret %>"
 http_address = "<%= @http_address %>"
+
+upstreams = [
+<% @upstreams.each do |upstream| -%>
+  "<%= upstream %>",
+]
+<% end -%>
+
 <% if !@google_apps_domains.empty? -%>
 google_apps_domains = [
 <%   @google_apps_domains.each do |domain| -%>
-  <%= domain %>,
+  "<%= domain %>",
 ]
 <%   end -%>
 <% end -%>
 htpasswd_file = "<%= @htpasswd_file %>"
+authenticated_emails_file = "<%= @google_auth_emails_file %>"
+
+cookie_secret = "<%= @cookie_secret.empty? ? SecureRandom.hex(20) : @cookie_secret %>"
+cookie_domain = ""
+cookie_expire = "168h"
+cookie_secure = true
